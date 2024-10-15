@@ -1,27 +1,26 @@
 import java.awt.*;
 import java.util.LinkedList;
-//standart Weapon is Blaster
-public class Weapon implements Attack{
-    public LinkedList<Bullet> bullets;
-    Image image_bullet;
 
-    public Weapon(Image image) {
-        this.bullets = new LinkedList<>();
-        this.image_bullet = image;
+public class Blaster extends Weapon {
+    public Blaster(Image image) {
+        super(image);
     }
 
     @Override
     public void toAttack(HealthPoint enemy) {
 
     }
+    @Override
     public void toShoot(double x, double y, double angle, Direction direction) {
         bullets.addLast(new Bullet(x, y, 30, angle, 30, direction, image_bullet));
     }
+    @Override
     public void draw(Graphics g) {
         for (int i = 0; i < bullets.size(); i++) {
             bullets.get(i).draw(g);
         }
     }
+    @Override
     public void moveBullets() {
         LinkedList<Bullet> new_bullets = new LinkedList<>();
         for (int i = 0; i < bullets.size(); i++) {
@@ -33,10 +32,11 @@ public class Weapon implements Attack{
         }
         bullets = new_bullets;
     }
+    @Override
     public LinkedList<Bullet> getBullets() {
         return bullets;
     }
-
+    @Override
     public void removeBullet(Bullet bullet) {
         bullets.remove(bullet);
     }

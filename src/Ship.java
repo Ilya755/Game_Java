@@ -6,7 +6,7 @@ public class Ship extends Unit implements HealthPoint {
     public int hp;
     public Ship(int x, int y, int speed, double angle, Image image1, Image image2, int hp) {
         super(x, y, speed, angle, image1);
-        this.weapon = new Weapon(image2);
+        this.weapon = new Blaster(image2);
         this.hp = hp;
     }
 
