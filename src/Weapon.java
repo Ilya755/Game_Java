@@ -1,13 +1,19 @@
 import java.awt.*;
 import java.util.LinkedList;
+import java.util.Timer;
+
 //standart Weapon is Blaster
 public class Weapon implements Attack{
     public LinkedList<Bullet> bullets;
     Image image_bullet;
+    boolean isTimerActive;
+    Timer timer;
+    protected long delay;
 
     public Weapon(Image image) {
         this.bullets = new LinkedList<>();
         this.image_bullet = image;
+        isTimerActive = false;
     }
 
     @Override
