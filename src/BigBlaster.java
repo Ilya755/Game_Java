@@ -1,8 +1,8 @@
 import java.awt.*;
 import java.util.LinkedList;
 
-public class Blaster extends Weapon {
-    public Blaster(Image image) {
+public class BigBlaster extends Weapon {
+    public BigBlaster(Image image) {
         super(image);
     }
 
@@ -12,7 +12,7 @@ public class Blaster extends Weapon {
     }
     @Override
     public void toShoot(double x, double y, double angle, Direction direction) {
-        bullets.addLast(new Bullet(x, y, 50, angle, 10, direction, image_bullet));
+        bullets.addLast(new Bullet(x, y, 15, angle, 100, direction, image_bullet));
     }
     @Override
     public void draw(Graphics g) {

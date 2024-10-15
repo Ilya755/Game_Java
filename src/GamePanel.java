@@ -18,20 +18,23 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
         setFocusable(true);
         addKeyListener(this);
         timer = new Timer(50, this);
-        Image imageShip1, imageShip2, imageBullet;
+        Image imageShip1, imageShip2, imageBullet, imageBigBullet;
         try {
             backgroundImage = ImageIO.read(new File("src/starfield-1.png"));
             imageShip1 = ImageIO.read(new File("src/good_mini_xwing1.png"));
             imageShip2 = ImageIO.read(new File("src/good_mini_xwing2.png"));
             imageBullet = ImageIO.read(new File("src/bullet.png"));
+            imageBigBullet = ImageIO.read(new File("src/BigBullet.png"));
             explosion = ImageIO.read(new File("src/explosion.png"));
         } catch (IOException e) {
             System.out.println("Облом(");
             throw new RuntimeException(e);
         }
         Random random = new Random();
-        orc1 = new Ship(random.nextInt(0, 1400), random.nextInt(0, 700), 30, 0, imageShip1, imageBullet, 100);
-        orc2 = new Ship(random.nextInt(0, 1400), random.nextInt(0, 700), 30, 0, imageShip2, imageBullet, 100);
+        Weapon w_orc1 = new Blaster(imageBullet);
+        orc1 = new Ship(random.nextInt(0, 1400), random.nextInt(0, 700), 30, 0, imageShip1, w_orc1, 100);
+        Weapon w_orc2 = new BigBlaster(imageBigBullet);
+        orc2 = new Ship(random.nextInt(0, 1400), random.nextInt(0, 700), 30, 0, imageShip2, w_orc2, 100);
         timer.start();
     }
 

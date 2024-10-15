@@ -4,9 +4,9 @@ import java.util.LinkedList;
 public class Ship extends Unit implements HealthPoint {
     public Weapon weapon;
     public int hp;
-    public Ship(int x, int y, int speed, double angle, Image image1, Image image2, int hp) {
+    public Ship(int x, int y, int speed, double angle, Image image1, Weapon weapon_, int hp) {
         super(x, y, speed, angle, image1);
-        this.weapon = new Blaster(image2);
+        this.weapon = weapon_;
         this.hp = hp;
     }
 
